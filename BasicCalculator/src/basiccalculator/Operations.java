@@ -1,7 +1,7 @@
 
 package basiccalculator;
 
-public class Operations {
+public class Operations implements MyMath {
     double firstNumber;
     double secondNumber;
 
@@ -29,4 +29,18 @@ public class Operations {
     public double differenza() {
         return this.firstNumber - this.secondNumber;
     }
+
+    @Override
+    public double logaritmo() {
+        return Math.pow(this.firstNumber, this.secondNumber);
+    }
+
+    @Override
+    public double potenza() {
+        return Math.pow(this.firstNumber, this.secondNumber);
+    }
+    
+    
+   
+    //    public String toString();
 }
