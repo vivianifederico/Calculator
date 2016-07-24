@@ -17,16 +17,14 @@ public class MyCalc extends Operations {
     double result;
     final int EXIT;
     
-    public MyCalc(){
+    public MyCalc () {
         super(0,0);
         this.EXIT = 0;
         this.result = result;
-        this.firstNumber  = getDoubleNumber(); 
-        this.secondNumber = getDoubleNumber(); 
-        this.choice = getIntNumber();
+        this.firstNumber  = 0.0; 
+        this.secondNumber = 0.0; 
+        this.choice = 0;
     }
-    
-    //MyCalc calc = new MyCalc();
     
     
     public void Init(MyCalc calc){
@@ -63,17 +61,26 @@ public class MyCalc extends Operations {
         
     }
     
-    public double getDoubleNumber(){
-        Scanner in = new Scanner(System.in);
-        return  in.nextDouble();
-    }
     
     public int getIntNumber(){
         Scanner in = new Scanner(System.in);
         return in.nextInt();
     }
+     
+    public double getDoubleNumber(){
+        
+        Scanner in = new Scanner(System.in);
+        return  in.nextDouble();
+    }
+   
     
     public void printResult(double result){
-        System.out.println(result);
+        System.out.println("Result :" + result);
+    }
+    
+    public void printThings(String MESSAGE){
+        
+        
+        System.out.println(MESSAGE);
     }
 }
