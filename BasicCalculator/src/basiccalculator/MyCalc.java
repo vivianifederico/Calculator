@@ -71,7 +71,8 @@ public class MyCalc extends Operations {
                 
     @Override
     public String toString (){
-        return " " +super.getFirstNumber() + " " + convertOpSymbol(getOp()) + " " + super.getSecondNumber() +" " +"=" + " " + getResult();
+        return " " +super.getFirstNumber() + " " + convertOpSymbol(getOp()) + " " 
+                + super.getSecondNumber() +" " +"=" + " " + getResult();
     }
     
     private String convertOpSymbol(int op){
@@ -104,7 +105,6 @@ public class MyCalc extends Operations {
                 toString = "log";
                 break;
             }
-           
             default: {
                 toString = "";
             }
