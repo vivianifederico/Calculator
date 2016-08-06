@@ -27,24 +27,24 @@ public class MyCalc extends Operations {
         
         switch (this.op) {
             case 1: {
-                this.setResult(this.somma());
+                this.setResult(somma());
                 break;
             }
             case 2: {
-                this.setResult(this.differenza()); 
+                this.setResult(differenza()); 
                 break;
             }
             case 3: {
-                this.setResult(this.moltiplicazione());
+                this.setResult(moltiplicazione());
                 break;
             }
             case 4: {
-                this.setResult(this.divisione());
+                this.setResult(divisione());
                 break;
             }
             
             case 5:
-                this.setResult(this.potenza());
+                this.setResult(potenza());
                 break;
             
             default: {
@@ -69,8 +69,9 @@ public class MyCalc extends Operations {
         return this.op;
     }
                 
-    public void toString ( int op, double result){
-        System.out.println(" " +super.getFirstNumber() + " " + convertOpSymbol(op) + " " + super.getSecondNumber() +" " +"=" + " " + result);
+    @Override
+    public String toString (){
+        return " " +super.getFirstNumber() + " " + convertOpSymbol(getOp()) + " " + super.getSecondNumber() +" " +"=" + " " + getResult();
     }
     
     private String convertOpSymbol(int op){

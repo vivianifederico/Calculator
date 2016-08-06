@@ -36,7 +36,11 @@ public class BasicCalculator extends Operations {
         
         calc.setSecondNumber(MyUtility.getDoubleNumber());
         
-        calc.toString(calc.getOp(),calc.getResult());
+        calc.Init();
+        
+        System.out.println("*-------------------------------------*");
+        System.out.println("*      " + calc.toString() + "                 *");
+        System.out.println("*-------------------------------------*");
                 
                      
     }
