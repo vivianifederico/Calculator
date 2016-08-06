@@ -5,7 +5,7 @@
  */
 package basiccalculator;
 
-import basiccalculator.MyUtility.*;
+
 /**
  *
  * @author feder
@@ -14,58 +14,45 @@ public class MyCalc extends Operations {
     
     private final String ERR_OP_NOT_ALLOWED = "Errore, operazione non permessa";
     
-    int choice;
-    double result;
-    final int EXIT;
+    private int op;
+    private double result;
     
     public MyCalc(){
         super(0,0);
-        this.EXIT = 0;
-        this.firstNumber  = MyUtility.getDoubleNumber(); 
-        this.secondNumber = MyUtility.getDoubleNumber(); 
-        this.choice = MyUtility.getIntNumber();
+        op = 0;
+        result = 0;
     } 
     
-    public void Init(MyCalc calc){
+    public void Init(){       
         
-        
-        
-        switch (this.choice) {
+        switch (this.op) {
             case 1: {
-                this.result = this.somma();
-                printResult(this.result);
+                this.setResult(this.somma());
                 break;
             }
             case 2: {
-                calc.setResult(this.differenza()); 
-                printResult(this.result);
+                this.setResult(this.differenza()); 
                 break;
             }
             case 3: {
-                calc.setResult(this.moltiplicazione());
-                printResult(this.result);
+                this.setResult(this.moltiplicazione());
                 break;
             }
             case 4: {
-                calc.setResult(this.divisione());
-                printResult(this.result);
+                this.setResult(this.divisione());
                 break;
             }
-            case 0: {
+            
+            case 5:
+                this.setResult(this.potenza());
                 break;
-            }
+            
             default: {
                 System.out.print(ERR_OP_NOT_ALLOWED);
             }
         }
-        
     }
-        
-    public void printResult(double result){
-        System.out.println(result);
-    }
-    
-        
+            
     public void setResult(double result ){
         this.result = result;
     } 
@@ -73,4 +60,56 @@ public class MyCalc extends Operations {
     public double getResult(){
         return this.result;
     }
+    
+    public void SetOp (int op){
+        this.op = op;
+    }
+    
+    public int getOp(){
+        return this.op;
+    }
+                
+    public void toString ( int op, double result){
+        System.out.println(" " +super.getFirstNumber() + " " + convertOpSymbol(op) + " " + super.getSecondNumber() +" " +"=" + " " + result);
+    }
+    
+    private String convertOpSymbol(int op){
+        String toString;
+        
+        switch (op){
+            case 1: {
+                toString = "+";
+                break;
+            }
+            case 2: {
+                toString = "-"; 
+                break;
+            }
+            case 3: {
+                toString = "*";
+                break;
+            }
+            case 4: {
+                toString = "/";
+                break;
+            }
+           
+            case 5: {
+                toString = "^";
+                break;
+            }
+            
+            case 6: {
+                toString = "log";
+                break;
+            }
+           
+            default: {
+                toString = "";
+            }
+        }
+        
+        return toString;
+    }
+        
 }

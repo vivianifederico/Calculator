@@ -41,7 +41,6 @@ public class MyUtility {
         return result;
         
     }
-       
     
     public static double getDoubleNumberNotZero(){
         Scanner in = new Scanner(System.in);
@@ -67,23 +66,32 @@ public class MyUtility {
     public static int getIntNumberNotNegative(){
         Scanner in = new Scanner(System.in);
         int result ;
+        boolean ok = false;
         do {
             result =  in.nextInt();
-            System.out.println(ERR_VALUE_NEGATIVE);
+            if (result < 0){
+                System.out.println(ERR_VALUE_NEGATIVE);
+            }else {
+                ok = true;
+            }
             
-        }while (result < 0);
+        }while (!ok);
         
         return result;
     }
     
     public static int getIntNumberNotZero(){
+        int result;
         Scanner in = new Scanner(System.in);
-        int result ;
+        boolean ok = false;
         do {
             result =  in.nextInt();
-            System.out.println(ERR_VALUE_ZERO);
-            
-        }while (result == 0);
+            if (result == 0){
+                System.out.println(ERR_VALUE_ZERO);
+            } else {
+                ok = true;
+            }
+        }while (!ok);
         
         return result;
     }
