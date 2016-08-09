@@ -15,7 +15,8 @@ public class MyUtility {
     
     final static String ERR_VALUE_NEGATIVE = "NEGATIVE VALUE, NOT ALLOWED" ;
     final static String ERR_VALUE_ZERO = "ZERO VALUE, NOT ALLOWED" ;
-    final static String ERR_VALUE_LITTLE = "" ;
+    final static String ERR_VALUE_MIN = "MIN VALUE IS " ;
+    final static String ERR_VALUE_MAX = "MAX VALUE IS " ;
     final static String ERR_VALUE_POSITIVE = "" ;
     final static String ERR_VALUE_BIG = "" ;
     final static String ERR_VALUE_NUMERIC = "" ;
@@ -24,12 +25,13 @@ public class MyUtility {
     DOUBLE METHOD
     */
     
-    public static double getDoubleNumber(){
+    public static double getDoubleNumber(String messaggio){
+        System.out.println(messaggio);
         Scanner in = new Scanner(System.in);
         return in.nextDouble();        
     }
     
-    public static double getDoubleNumberNotNegative(){
+    public static double getDoubleNumberNotNegative(String messaggio){
         Scanner in = new Scanner(System.in);
         double result ;
         do {
@@ -42,7 +44,7 @@ public class MyUtility {
         
     }
     
-    public static double getDoubleNumberNotZero(){
+    public static double getDoubleNumberNotZero(String messaggio){
         Scanner in = new Scanner(System.in);
         double result ;
         do {
@@ -58,12 +60,12 @@ public class MyUtility {
     /*
         INT METHOD
     */
-    public static int getIntNumber(){
+    public static int getIntNumber(String messaggio){
         Scanner in = new Scanner(System.in);
         return  in.nextInt();
     }
     
-    public static int getIntNumberNotNegative(){
+    public static int getIntNumberNotNegative(String messaggio){
         Scanner in = new Scanner(System.in);
         int result ;
         boolean ok = false;
@@ -80,7 +82,7 @@ public class MyUtility {
         return result;
     }
     
-    public static int getIntNumberNotZero(){
+    public static int getIntNumberNotZero(String messaggio){
         int result;
         Scanner in = new Scanner(System.in);
         boolean ok = false;
@@ -91,6 +93,30 @@ public class MyUtility {
             } else {
                 ok = true;
             }
+        }while (!ok);
+        
+        return result;
+    }
+    
+    public static int getIntNumberMinMax(String messaggio, int min, int max ){
+        Scanner in = new Scanner(System.in);
+        int result ;
+        boolean ok = false;
+        do {
+            System.out.println(messaggio);
+            result =  in.nextInt();
+            
+            if (result < 0){
+                System.out.println(ERR_VALUE_NEGATIVE);
+            }else if (result < min){
+                System.out.println(ERR_VALUE_MIN);
+                
+            }else if (result > max ){
+                System.out.println(ERR_VALUE_MAX);
+            }else {
+                ok = true;
+            }
+            
         }while (!ok);
         
         return result;

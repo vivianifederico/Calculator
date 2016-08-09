@@ -15,6 +15,7 @@ public class BasicCalculator extends Operations {
     private static final String LOG_MESSAGE = " (log) ->  6";
     private static final String MESSAGE = "INSERISCI DUE OPERANDI";
     private static final String GRECA = "*--------------------------------------*";
+    private static final String [] voci ={"AVVIA CALCOLATRICE","ESCI DA CALCOLATRICE"};
 
     public BasicCalculator(double firstNumber, double secondNumber) {
         super(firstNumber, secondNumber);
@@ -22,39 +23,39 @@ public class BasicCalculator extends Operations {
 
     public static void main(String[] args) {
         MyCalc calc = new MyCalc();
+        MyMenu mymenu = new MyMenu("WELCOME_MESSAGE",voci);
         
-        System.out.println(WELCOME_MESSAGE);        
-        System.out.println(INSERT_MESSAGE);
-        calc.setFirstNumber(MyUtility.getDoubleNumber());
-        
-        System.out.println(OPERATION_MESSAGE);
-        System.out.println(SUM_MESSAGE);
-        System.out.println(DIFF_MESSAGE);
-        System.out.println(MULTI_MESSAGE);
-        System.out.println(DIV_MESSAGE);
-        System.out.println(POW_MESSAGE);
-        System.out.println(LOG_MESSAGE);
-        
-        calc.SetOp(MyUtility.getIntNumberNotNegative()); 
-        
-        System.out.println(INSERT_MESSAGE);
-        
-        calc.setSecondNumber(MyUtility.getDoubleNumber());
-        
-        calc.Init();
-        
-        int lengthS = calc.toString().length();
-        int lengthG = GRECA.length();
-        
-        
-        
-        System.out.println(GRECA);
-        
-        String myString = calc.toString();
-        
-        
-        System.out.println(toString(myString,lengthS,lengthG));
-        System.out.println(GRECA);
+        do {
+            mymenu.stampaMenu();
+            
+            System.out.println();    
+
+            calc.setFirstNumber(MyUtility.getDoubleNumber(INSERT_MESSAGE));
+
+            System.out.println(OPERATION_MESSAGE);
+            System.out.println(SUM_MESSAGE);
+            System.out.println(DIFF_MESSAGE);
+            System.out.println(MULTI_MESSAGE);
+            System.out.println(DIV_MESSAGE);
+            System.out.println(POW_MESSAGE);
+            System.out.println(LOG_MESSAGE);
+
+            calc.SetOp(MyUtility.getIntNumberNotNegative(null)); 
+
+            calc.setSecondNumber(MyUtility.getDoubleNumber(INSERT_MESSAGE));
+
+            calc.Init();
+
+            int lengthS = calc.toString().length();
+            int lengthG = GRECA.length();
+
+            System.out.println(GRECA);
+
+            String myString = calc.toString();
+
+            System.out.println(toString(myString,lengthS,lengthG));
+            System.out.println(GRECA);
+        } while (mymenu.scegli()!=0);
                 
                      
     }
