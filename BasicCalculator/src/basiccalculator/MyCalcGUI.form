@@ -65,13 +65,18 @@
                               <Component id="vsix" min="-2" pref="70" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="vone" min="-2" pref="70" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="vtwo" min="-2" pref="70" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="vdellast" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="vone" min="-2" pref="70" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="vtwo" min="-2" pref="70" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="vdel" min="-2" pref="70" max="-2" attributes="0"/>
                                   <Component id="vthree" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Component id="vdel" min="-2" pref="70" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -88,7 +93,10 @@
               <EmptySpace pref="31" max="32767" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="61" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="vdel" min="-2" pref="46" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="vdellast" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="vdel" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="vtwo" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
@@ -137,42 +145,66 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="2"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vtwoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="vfour">
       <Properties>
         <Property name="text" type="java.lang.String" value="4"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vfourActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="vfive">
       <Properties>
         <Property name="text" type="java.lang.String" value="5"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vfiveActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="veight">
       <Properties>
         <Property name="text" type="java.lang.String" value="8"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="veightActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="vseven">
       <Properties>
         <Property name="text" type="java.lang.String" value="7"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vsevenActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="vthree">
       <Properties>
         <Property name="text" type="java.lang.String" value="3"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vthreeActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="vsix">
       <Properties>
         <Property name="text" type="java.lang.String" value="6"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vsixActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="vnine">
       <Properties>
         <Property name="text" type="java.lang.String" value="9"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vnineActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="vmult">
       <Properties>
@@ -183,6 +215,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vzeroActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="vlog">
       <Properties>
@@ -220,10 +255,21 @@
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
+            <Property name="keymap" type="javax.swing.text.Keymap" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="null"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="vdellast">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CE"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="vdellastActionPerformed"/>
+      </Events>
+    </Component>
     <Component class="javax.swing.JButton" name="vdel">
       <Properties>
         <Property name="text" type="java.lang.String" value="C"/>

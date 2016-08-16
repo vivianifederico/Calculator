@@ -45,6 +45,7 @@ public class MyCalcGUI extends javax.swing.JFrame {
         vexp = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        vdellast = new javax.swing.JButton();
         vdel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,25 +58,70 @@ public class MyCalcGUI extends javax.swing.JFrame {
         });
 
         vtwo.setText("2");
+        vtwo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vtwoActionPerformed(evt);
+            }
+        });
 
         vfour.setText("4");
         vfour.setToolTipText("");
+        vfour.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vfourActionPerformed(evt);
+            }
+        });
 
         vfive.setText("5");
+        vfive.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vfiveActionPerformed(evt);
+            }
+        });
 
         veight.setText("8");
+        veight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                veightActionPerformed(evt);
+            }
+        });
 
         vseven.setText("7");
+        vseven.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vsevenActionPerformed(evt);
+            }
+        });
 
         vthree.setText("3");
+        vthree.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vthreeActionPerformed(evt);
+            }
+        });
 
         vsix.setText("6");
+        vsix.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vsixActionPerformed(evt);
+            }
+        });
 
         vnine.setText("9");
+        vnine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vnineActionPerformed(evt);
+            }
+        });
 
         vmult.setText("*");
 
         vzero.setText("0");
+        vzero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vzeroActionPerformed(evt);
+            }
+        });
 
         vlog.setText("ln");
 
@@ -89,7 +135,15 @@ public class MyCalcGUI extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setKeymap(null);
         jScrollPane1.setViewportView(jTextArea1);
+
+        vdellast.setText("CE");
+        vdellast.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vdellastActionPerformed(evt);
+            }
+        });
 
         vdel.setText("C");
         vdel.addActionListener(new java.awt.event.ActionListener() {
@@ -137,13 +191,16 @@ public class MyCalcGUI extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(vsix, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(vone, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(vtwo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(vdellast, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(vone, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(vtwo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(vdel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(vthree, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(vthree, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(vdel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addComponent(jScrollPane1))
                 .addGap(39, 39, 39))
         );
@@ -153,7 +210,9 @@ public class MyCalcGUI extends javax.swing.JFrame {
                 .addContainerGap(31, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(vdel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(vdellast, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(vdel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(vtwo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -186,13 +245,58 @@ public class MyCalcGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void voneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voneActionPerformed
-        // TODO add your handling code here:
+        jTextArea1.append("1");        // TODO add your handling code here:
     }//GEN-LAST:event_voneActionPerformed
 
+    private void vdellastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vdellastActionPerformed
+ 
+        String text =jTextArea1.getText();
+        text = text.substring(0,text.length()-1);
+        jTextArea1.setText(text);// TODO add your handling code here:
+    }//GEN-LAST:event_vdellastActionPerformed
+
+    private void vtwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vtwoActionPerformed
+        jTextArea1.append("2"); // TODO add your handling code here:
+    }//GEN-LAST:event_vtwoActionPerformed
+
+    private void vthreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vthreeActionPerformed
+        jTextArea1.append("3");        // TODO add your handling code here:
+    }//GEN-LAST:event_vthreeActionPerformed
+
     private void vdelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vdelActionPerformed
-        // TODO add your handling code here:
+        jTextArea1.setText("");
     }//GEN-LAST:event_vdelActionPerformed
 
+    private void vfourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vfourActionPerformed
+        jTextArea1.append("4"); // TODO add your handling code here:
+    }//GEN-LAST:event_vfourActionPerformed
+
+    private void vfiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vfiveActionPerformed
+        jTextArea1.append("5");         // TODO add your handling code here:
+    }//GEN-LAST:event_vfiveActionPerformed
+
+    private void vsixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vsixActionPerformed
+        jTextArea1.append("6");         // TODO add your handling code here:
+    }//GEN-LAST:event_vsixActionPerformed
+
+    private void vsevenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vsevenActionPerformed
+        jTextArea1.append("7");         // TODO add your handling code here:
+    }//GEN-LAST:event_vsevenActionPerformed
+
+    private void veightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_veightActionPerformed
+        jTextArea1.append("8");         // TODO add your handling code here:
+    }//GEN-LAST:event_veightActionPerformed
+
+    private void vnineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vnineActionPerformed
+        jTextArea1.append("9");         // TODO add your handling code here:
+    }//GEN-LAST:event_vnineActionPerformed
+
+    private void vzeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vzeroActionPerformed
+        jTextArea1.append("0");         // TODO add your handling code here:
+    }//GEN-LAST:event_vzeroActionPerformed
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -232,6 +336,7 @@ public class MyCalcGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton vdel;
+    private javax.swing.JButton vdellast;
     private javax.swing.JButton vdiv;
     private javax.swing.JButton veight;
     private javax.swing.JButton vexp;
