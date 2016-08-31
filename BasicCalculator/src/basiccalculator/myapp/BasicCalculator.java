@@ -1,9 +1,13 @@
 
-package basiccalculator;
+package basiccalculator.myapp;
 
+import basiccalculator.util.InputException;
+import basiccalculator.util.MyCalc;
+import basiccalculator.util.MyMenu;
+import basiccalculator.util.MyUtility;
 import com.google.common.base.Strings;
 
-public class BasicCalculator extends Operations {
+public class BasicCalculator  {
     private static final String WELCOME_MESSAGE = "BENVENUTI NELLA CALCOLATRICE";
     private static final String INSERT_MESSAGE = "INSERIRE L'OPERANDO ";
     private static final String OPERATION_MESSAGE = "OPERAZIONI DISPONIBILI :";
@@ -15,13 +19,10 @@ public class BasicCalculator extends Operations {
     private static final String LOG_MESSAGE = " (log) ->  6";
     private static final String MESSAGE = "INSERISCI DUE OPERANDI";
     private static final String GRECA = "*--------------------------------------*";
-    private static final String [] voci ={"AVVIA CALCOLATRICE","ESCI DA CALCOLATRICE"};
+    private static final String [] voci ={"AVVIA CALCOLATRICE"};
 
-    public BasicCalculator(double firstNumber, double secondNumber) {
-        super(firstNumber, secondNumber);
-    }
-
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InputException {
+        
         MyCalc calc = new MyCalc();
         MyMenu mymenu = new MyMenu("WELCOME_MESSAGE",voci);
         
@@ -30,7 +31,7 @@ public class BasicCalculator extends Operations {
             
             System.out.println();    
 
-            calc.setFirstNumber(MyUtility.getDoubleNumber(INSERT_MESSAGE));
+            calc.setFirstNumber(MyUtility.getIntNumberMinMax(INSERT_MESSAGE,0,2));
 
             System.out.println(OPERATION_MESSAGE);
             System.out.println(SUM_MESSAGE);
@@ -59,7 +60,6 @@ public class BasicCalculator extends Operations {
                 
                      
     }
-    
     
     public static String toString(String result, int lengthS, int lengthG ){
         

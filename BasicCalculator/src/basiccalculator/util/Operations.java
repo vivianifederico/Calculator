@@ -1,5 +1,5 @@
 
-package basiccalculator;
+package basiccalculator.util;
 
 public class Operations implements MyMath {
     

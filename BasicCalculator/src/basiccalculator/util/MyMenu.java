@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package basiccalculator;
+package basiccalculator.util;
 
 /**
  *
@@ -25,7 +25,7 @@ public class MyMenu {
           this.voci = voci;
     }
 
-    public int scegli ()
+    public int scegli () throws InputException
     {
           stampaMenu();
           return MyUtility.getIntNumberMinMax(RICHIESTA_INSERIMENTO, 0, voci.length);	 

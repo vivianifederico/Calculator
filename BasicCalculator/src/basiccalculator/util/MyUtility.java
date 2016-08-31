@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package basiccalculator;
+package basiccalculator.util;
+import java.util.InputMismatchException;
 
 import java.util.Scanner;
 
@@ -25,13 +26,22 @@ public class MyUtility {
     DOUBLE METHOD
     */
     
-    public static double getDoubleNumber(String messaggio){
+    public static double getDoubleNumber(String messaggio) throws InputException{
+        double value;
+        
         System.out.println(messaggio);
         Scanner in = new Scanner(System.in);
-        return in.nextDouble();        
+        value = in.nextDouble(); 
+        
+        if (Double.isNaN(value)){
+            throw new InputException("Not numeric data", value);
+        }
+        
+        return value;        
+                
     }
     
-    public static double getDoubleNumberNotNegative(String messaggio){
+    public static double getDoubleNumberNotNegative(String messaggio) throws InputException { 
         Scanner in = new Scanner(System.in);
         double result ;
         do {
@@ -40,11 +50,14 @@ public class MyUtility {
             
         }while (result < 0);
         
+        if (Double.isNaN(result)){
+            throw new InputException("Not numeric data", result);
+        }
         return result;
         
     }
     
-    public static double getDoubleNumberNotZero(String messaggio){
+    public static double getDoubleNumberNotZero(String messaggio) throws InputException {
         Scanner in = new Scanner(System.in);
         double result ;
         do {
@@ -53,6 +66,9 @@ public class MyUtility {
             
         }while (result == 0);
         
+        if (Double.isNaN(result)){
+            throw new InputException("Not numeric data", result);
+        }
         return result;
         
     }
@@ -60,12 +76,20 @@ public class MyUtility {
     /*
         INT METHOD
     */
-    public static int getIntNumber(String messaggio){
+    public static int getIntNumber(String messaggio) throws InputException {
+        
+        double result;
         Scanner in = new Scanner(System.in);
-        return  in.nextInt();
+        result = in.nextInt();
+        
+        if (Double.isNaN(result)){
+            throw new InputException("Not numeric data", result);
+        }
+        
+        return  (int)result;
     }
     
-    public static int getIntNumberNotNegative(String messaggio){
+    public static int getIntNumberNotNegative(String messaggio) throws InputException {
         Scanner in = new Scanner(System.in);
         int result ;
         boolean ok = false;
@@ -82,7 +106,7 @@ public class MyUtility {
         return result;
     }
     
-    public static int getIntNumberNotZero(String messaggio){
+    public static int getIntNumberNotZero(String messaggio) throws InputException {
         int result;
         Scanner in = new Scanner(System.in);
         boolean ok = false;
@@ -98,13 +122,19 @@ public class MyUtility {
         return result;
     }
     
-    public static int getIntNumberMinMax(String messaggio, int min, int max ){
+    public static int getIntNumberMinMax(String messaggio, int min, int max ) throws InputException {
         Scanner in = new Scanner(System.in);
-        int result ;
+        int result = 0;
         boolean ok = false;
         do {
             System.out.println(messaggio);
-            result =  in.nextInt();
+            
+            try {
+                result =  in.nextInt();
+            }catch (InputMismatchException e) {
+                //System.out.println(e.getCause() + e.getMessage());
+                throw new InputException("Not numeric data " , result);
+            }
             
             if (result < 0){
                 System.out.println(ERR_VALUE_NEGATIVE);
