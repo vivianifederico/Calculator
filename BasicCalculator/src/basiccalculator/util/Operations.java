@@ -12,7 +12,11 @@ public class Operations implements MyMath {
         this.firstNumber = firstNumber;
         this.secondNumber = secondNumber;
     }
-
+    
+    Operations (){
+        
+    }
+    
     @Override
     public double moltiplicazione() {
         return this.firstNumber * this.secondNumber;

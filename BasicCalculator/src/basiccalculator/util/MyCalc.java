@@ -16,12 +16,23 @@ public class MyCalc extends Operations {
     
     private int op;
     private double result;
+    private String[] operazioni;
     
     public MyCalc(){
         super(0,0);
         op = 0;
         result = 0;
+        
     } 
+    
+    public MyCalc(String[] operazioni) throws IllegalArgumentException{
+        this();
+        this.operazioni = operazioni;
+        
+        if (operazioni.length == 0) 
+            throw new IllegalArgumentException("Operazioni devono essere definite");
+        stampaOperazioni();
+    }
     
     public void Init(){       
         
@@ -113,4 +124,14 @@ public class MyCalc extends Operations {
         return toString;
     }
         
+    public void stampaOperazioni() {
+        //System.out.println(titolo);
+        //System.out.println(CORNICE);
+        for (int i = 0; i < operazioni.length; i++) {
+            System.out.println((i + 1) + "\t" + operazioni[i]);
+        }
+        System.out.println();
+        //System.out.println(VOCE_USCITA);
+        System.out.println();
+    }
 }

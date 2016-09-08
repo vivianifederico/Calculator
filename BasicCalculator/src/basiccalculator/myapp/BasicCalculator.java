@@ -19,12 +19,13 @@ public class BasicCalculator  {
     private static final String LOG_MESSAGE = " (log) ->  6";
     private static final String MESSAGE = "INSERISCI DUE OPERANDI";
     private static final String GRECA = "*--------------------------------------*";
-    private static final String [] voci ={"AVVIA CALCOLATRICE"};
+    private static final String [] VOCI ={"AVVIA CALCOLATRICE"};
+    private static final String [] OPERAZIONI = {OPERATION_MESSAGE, SUM_MESSAGE, DIFF_MESSAGE, MULTI_MESSAGE, DIV_MESSAGE, POW_MESSAGE, LOG_MESSAGE};
 
     public static void main(String[] args) throws InputException {
         
-        MyCalc calc = new MyCalc();
-        MyMenu mymenu = new MyMenu("WELCOME_MESSAGE",voci);
+        MyCalc calc = new MyCalc(OPERAZIONI);
+        MyMenu mymenu = new MyMenu("WELCOME_MESSAGE",VOCI);
         
         do {
             mymenu.stampaMenu();
@@ -32,16 +33,19 @@ public class BasicCalculator  {
             System.out.println();    
 
             calc.setFirstNumber(MyUtility.getIntNumberMinMax(INSERT_MESSAGE,0,2));
-
-            System.out.println(OPERATION_MESSAGE);
+            
+            calc.stampaOperazioni();
+            
+            //System.out.println(OPERATION_MESSAGE+ SUM_MESSAGE+DIFF_MESSAGE+MULTI_MESSAGE+DIV_MESSAGE+ POW_MESSAGE+LOG_MESSAGE);
+            /*System.out.println(OPERATION_MESSAGE);
             System.out.println(SUM_MESSAGE);
             System.out.println(DIFF_MESSAGE);
             System.out.println(MULTI_MESSAGE);
             System.out.println(DIV_MESSAGE);
             System.out.println(POW_MESSAGE);
             System.out.println(LOG_MESSAGE);
-
-            calc.SetOp(MyUtility.getIntNumberNotNegative(null)); 
+            */
+            calc.SetOp(MyUtility.getIntNumberNotNegative(INSERT_MESSAGE)); 
 
             calc.setSecondNumber(MyUtility.getDoubleNumber(INSERT_MESSAGE));
 
